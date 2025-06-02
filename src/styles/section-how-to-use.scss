@@ -1,0 +1,71 @@
+@use "./variables.scss" as v;
+@use "./mixins.scss" as m;
+
+
+.section-how-to-use {
+    @include m.bg-image;
+    color: v.$color-white;
+    text-align: center;
+    padding: 60px 40px 160px;
+    position: relative;
+}
+
+.how-to-use__video {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    max-width: 770px;
+    width: calc(100% - 40px);
+}
+
+.how-to-use__video > img {
+    width: 100%;
+}
+
+.section-how-to-use__title {
+    @include m.text-style(base);
+    @include m.text-uppercase;
+    margin-bottom: 35px;
+    margin: 0 auto;
+
+}
+
+.section-how-to-use__description {
+    @include m.text-style(xs);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+@include m.respond-max(v.$breakpoint-tablet) {
+
+    .section-how-to-use {
+        padding: 50px 40px 160px;
+    }
+
+    .section-how-to-use__title {
+        @include m.text-style(md);
+        margin-bottom: 18px;
+        max-width: 360px;
+    }
+
+    .section-how-to-use__description {
+        max-width: 450px;
+    }
+}
+
+@include m.respond-max(v.$breakpoint-desktop) {
+    .section-how-to-use {
+        padding: 160px 40px
+    }
+
+    .section-how-to-use__title {
+        max-width: 550px;
+        margin-bottom: 25px;
+    }
+
+    .section-how-to-use__description {
+        max-width: 600px;
+    }
+
+}

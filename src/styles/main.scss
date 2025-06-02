@@ -1,0 +1,47 @@
+@use "./fonts.scss";
+@use "./variables.scss" as v;
+@use './header.scss';
+@use "./section-hero.scss";
+@use "./section-about.scss";
+@use "./section-features.scss";
+@use "./section-download-app.scss";
+@use "./section-how-to-use.scss";
+@use "./section-blog.scss";
+@use "./section-footer.scss";
+
+body {
+  font-family: JosefinSans, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+input {
+  all: unset;
+  box-sizing: border-box;
+};
+
+.container-max {
+  max-width: 1440px;
+  margin: 0 auto;
+}

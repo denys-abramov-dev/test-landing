@@ -1,0 +1,212 @@
+@use "./variables.scss" as v;
+@use "./mixins.scss" as m;
+
+.hero {
+    @include m.bg-image;
+    overflow: hidden;
+    padding: 40px 16px 0 16px;
+}
+
+.hero__topbar {
+    display: none;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.hero__contacts {
+    display: flex;
+    gap: 48px;
+}
+
+.hero__contact {
+    align-items: center;
+    color: v.$color-white;
+    display: flex;
+}
+
+.hero__contact-icon {
+    margin-right: 17px;
+}
+
+.hero__contact-text {
+    @include m.text-style(xs);
+}
+
+.hero__socials {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    right: 4px;
+    top: 3px;
+}
+
+.hero__body {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+    padding: 110px 0 108px 23px;
+}
+
+.hero__content-box {
+    border: 10px solid v.$color-primary;
+    height: 358px;
+    width: 323px;
+}
+
+.hero__content {
+    background-color: v.$color-white;
+    height: 318px;
+    left: -31px;
+    padding: 28px 10px 0 18px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 323px;
+}
+
+.hero__title {
+    @include m.text-style(base);
+    @include m.text-uppercase;
+    color: v.$color-base;
+    margin-bottom: 13px;
+}
+
+.hero__description {
+    @include m.text-style(xs);
+    color: v.$color-gray;
+    margin-bottom: 24px;
+}
+
+.hero__description-highlight {
+    display: none;
+}
+
+.hero__download-label {
+    @include m.text-style(sm);
+    color: v.$color-black;
+    margin-bottom: 18px;
+}
+
+.hero__store-buttons {
+    display: flex;
+}
+
+.hero__store-button {
+    &--play {
+        margin-right: 13px;
+    }
+}
+
+.hero__store-button-img {
+    height: 34px;
+    width: auto;
+}
+
+.hero__preview {
+    position: relative;
+    right: -57px;
+    width: 406px;
+}
+
+.hero__preview-img {
+    width: 100%;
+}
+
+@include m.respond-max(v.$breakpoint-tablet) {
+    .hero {
+        padding: 25px 41px 0 41px;
+    }
+
+    .hero__topbar {
+        display: flex;
+        margin-bottom: 35px;
+    }
+
+    .hero__body {
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding: 264px 0;
+    }
+
+    .hero__content-box {
+        border: 18px solid v.$color-primary;
+        height: 381px;
+        left: 14px;
+        position: relative;
+        top: 6px;
+        width: 375px;
+    }
+
+    .hero__content {
+        height: 318px;
+        left: -33px;
+        padding: 16px 10px 0 18px;
+        width: 356px;
+    }
+
+    .hero__title {
+        @include m.text-style(md);
+        margin-bottom: 6px;
+    }
+
+    .hero__description {
+        margin-bottom: 17px;
+    }
+
+    .hero__download-label {
+        margin-bottom: 24px;
+    }
+
+    .hero__store-button-img {
+        height: 47px;
+        width: auto;
+    }
+
+    .hero__preview {
+        right: -41px;
+        width: 560px;
+    }
+
+    .hero__preview-img {
+        width: 100%;
+    }
+}
+
+@include m.respond-max(v.$breakpoint-desktop) {
+    .hero {
+        padding: 35px 136px 0;
+    }
+
+    .hero__topbar {
+        margin-bottom: 16px;
+    }
+
+    .hero__description-highlight {
+        display: block;
+    }
+
+    .hero__content-box {
+        height: 535px;
+        left: 49px;
+        position: relative;
+        top: 6px;
+        width: 570px;
+    }
+
+    .hero__content {
+        height: 432px;
+        left: -68px;
+        padding: 40px 20px 40px 30px;
+        width: 570px;
+    }
+
+    .hero__preview {
+        right: -136px;
+        width: 560px;
+    }
+}

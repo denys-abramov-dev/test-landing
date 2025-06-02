@@ -1,0 +1,241 @@
+@use "./variables.scss" as v;
+@use "./mixins.scss" as m;
+
+.footer {
+    background-color: v.$color-black;
+    color: v.$color-white;
+    padding: 221px 16px 28px;
+    position: relative;
+
+    .footer-content-container {
+        border-bottom: 1px solid v.$color-white;
+        margin: 0 auto 40px;
+    }
+}
+
+.contacts {
+    @include m.box-shadow;
+    background-color: v.$color-white;
+    color: v.$color-black;
+    border-radius: v.$border-radius-m;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 30px);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1440px;
+}
+
+.contacts {
+    padding: 32px 32px
+}
+
+.contact-item {
+    @include m.text-style(sm);
+    @include m.text-uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-item-mail {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.contact-item-mail::after {
+    position: absolute;
+    content: " ";
+    width: 42%;
+    height: 4px;
+    bottom: -21px;
+    left: 50%;
+    background-color: v.$color-black;
+    transform: translateX(-50%);
+}
+
+.contact-item-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: v.$color-base;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.contact-item-icon-wrapper>img {
+    width: 20px;
+    height: 20px;
+}
+
+.footer a {
+    color: v.$color-white;
+    text-decoration: none;
+}
+
+.footer__title {
+    @include m.text-style(md);
+    @include m.text-uppercase;
+}
+
+.footer__text {
+    @include m.text-style(xs);
+    margin-bottom: 39px;
+}
+
+.social-links {
+    display: flex;
+    margin-bottom: 57px;
+}
+
+.social-link>img {
+    width: 24px;
+    height: 24px;
+}
+
+.social-links .social-link:not(:last-child) {
+    padding-right: 30px;
+    margin-right: 25px;
+}
+
+.social-links .social-link:not(:last-child):after {
+    content: "";
+    position: absolute;
+    right: -1px;
+    top: 2px;
+    width: 1px;
+    height: 20px;
+    background-color: v.$color-white;
+}
+
+.social-link {
+    display: inline-block;
+    position: relative;
+    padding-right: 8px;
+}
+
+.quick-link-title {
+    @include m.text-style(base);
+    @include m.text-uppercase;
+    margin-bottom: 14px
+}
+
+.newsletter-title {
+    @include m.text-style(base);
+    @include m.text-uppercase;
+    margin-bottom: 11px;
+}
+
+.newsletter-text {
+    @include m.text-style(xs);
+    padding-bottom: 34px;
+}
+
+.quick-links-list {
+    margin-bottom: 64px;
+}
+
+.quick-link-item {
+    margin-bottom: 20px;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.newsletter-input {
+    @include m.text-style(xs);
+    border-radius: v.$border-radius-s;
+    background-color: v.$color-white;
+    color: v.$color-gray;
+    padding: 12px 52px 12px 12px;
+
+}
+
+.newsletter-button {
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: v.$color-base;
+    display: flex;
+    border-radius: v.$border-radius-s;
+    padding: 10px;
+}
+
+.footer__copyright {
+    @include m.text-style(xs);
+    color: v.$color-white;
+    text-align: center;
+}
+
+@include m.respond-max(v.$breakpoint-tablet) {
+
+    .footer {
+        padding: 135px 40px 20px
+    }
+
+    .footer-content-container {
+        display: flex;
+    }
+
+    .footer__logo,
+    .quick-links,
+    .news-letter {
+        flex: 1;
+    }
+
+    .footer__logo {
+        margin-right: 20px;
+    }
+
+    .contacts {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: calc(100% - 82px);
+        padding: 45px 17px
+    }
+
+
+    .contact-item {
+        @include m.text-style(xs);
+        flex-direction: row;
+        gap: 20px;
+        flex: 1;
+    }
+
+    .contact-item-mail,
+    .contact-item-icon-wrapper {
+        margin-bottom: 0;
+    }
+
+    .contact-item-mail::after {
+        position: absolute;
+        transform: translateY(-50%);
+        width: 3px;
+        height: 100%;
+        left: auto;
+        right: 0;
+        top: 50%
+    }
+
+    .contact-item-icon-wrapper {
+        width: 60px;
+        height: 60px;
+    }
+
+}
+
+@include m.respond-max(v.$breakpoint-desktop) {
+    .contact-title {
+        @include m.text-style(base);
+    }
+}

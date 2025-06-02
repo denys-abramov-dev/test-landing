@@ -1,0 +1,43 @@
+$color-white: #ffffff;
+$color-black: #000000;
+$color-base: #5956E9;
+$color-primary: #7572FF;
+$color-gray: #6C6C72;
+
+$border-radius-s: 5px;
+$border-radius-m: 10px;
+
+$text-styles: (
+  3xs: (font-size: 10px,
+    line-height: 10px,
+    font-weight: 600,
+  ),
+  2xs: (font-size: 13px,
+    line-height: 16px,
+    font-weight: 300,
+  ),
+  xs: (font-size: 16px,
+    line-height: 24px,
+    font-weight: 400),
+  sm: (font-size: 20px,
+    line-height: 30px,
+    font-weight: 600),
+  base: (font-size: 25px,
+    line-height: 38px,
+    font-weight: 600),
+  md: (font-size: 31px,
+    line-height: 47px,
+    font-weight: 700),
+  lg: (font-size: 39px,
+    line-height: 58px,
+    font-weight: 600),
+  xl: (font-size: 49px,
+    line-height: 63px,
+    font-weight: 700),
+  2xl: (font-size: 61px,
+    line-height: 69px,
+    font-weight: 700),
+);
+
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1440px;

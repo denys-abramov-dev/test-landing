@@ -1,0 +1,130 @@
+@use "./variables.scss" as v;
+@use "./mixins.scss" as m;
+
+.header {
+    background-color: v.$color-white;
+    border-radius: v.$border-radius-s;
+    display: flex;
+    justify-content: space-between;
+    height: 39px;
+    position: relative;
+    align-items: center;
+    padding: 0px 3px 0px 9px;
+}
+
+.hamburger {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 4px 0;
+    cursor: pointer;
+}
+
+.line {
+    width: 18px;
+    height: 2px;
+    background-color: black;
+    margin: 0 auto;
+}
+
+.header-links {
+    display: none;
+    // display: flex;
+    align-items: center;
+    gap: 40px;
+    height: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header-link {
+    @include m.text-style(sm);
+    @include m.text-uppercase;
+    color: v.$color-black;
+    text-decoration: none;
+
+    &:hover {
+        color: v.$color-base;
+    }
+}
+
+.header-logo {
+    width: 100px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: v.$border-radius-s;
+    background-color: v.$color-white;
+}
+
+.header-logo-image {
+    width: 79px;
+    height: auto;
+}
+
+.header-right-nav {
+    display: flex;
+    align-items: center;
+}
+
+.heder-right-links {
+    margin-right: 44px;
+}
+
+.download-button {
+    display: block;
+    @include m.text-style(3xs);
+    @include m.text-uppercase;
+    padding: 12px 6px;
+    background-color: v.$color-base;
+    color: v.$color-white;
+    border-radius: v.$border-radius-s;
+}
+
+@include m.respond-max(v.$breakpoint-tablet) {
+
+    .header {
+        padding: 0 3px 0 16px;
+        height: 60px;
+    }
+
+    .header-logo {
+        width: 200px;
+        height: 90px;
+    }
+
+    .header-logo-image {
+        width: 167px;
+    }
+
+    .download-button {
+        @include m.text-style(sm);
+        padding: 10px 16px;
+    }
+
+}
+
+@include m.respond-max(v.$breakpoint-desktop) {
+
+    .header {
+        padding: 0 3px 0 52px;
+    }
+
+    .header-links {
+        display: flex;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+
+}

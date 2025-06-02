@@ -1,0 +1,138 @@
+@use "./variables.scss" as v;
+@use "./mixins.scss" as m;
+
+.download-app {
+    background-color: v.$color-white;
+    padding: 16px;
+}
+
+.download-app__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.download-app__left-content {
+    color: v.$color-black;
+    margin-bottom: 60px;
+}
+
+.download-app__title {
+    @include m.text-style(base);
+    @include m.text-uppercase;
+    margin-bottom: 18px;
+}
+
+.download-app__text {
+    @include m.text-style(xs);
+    color: v.$color-gray;
+    margin-bottom: 40px;
+}
+
+.download-app__btn-link {
+    display: inline-block;
+}
+
+.download-app__btn-preview {
+    height: 50px;
+    width: auto;
+}
+
+.download-app__btns {
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.download-app__right-content {
+    max-width: 516px;
+}
+
+.download-app_preview {
+    width: 100%;
+    height: auto
+}
+
+.download-app__ratings {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.download-app__rating-item {
+    width: 96px;
+    height: 100px;
+    background-color: v.$color-base;
+    color: v.$color-white;
+    border-radius: v.$border-radius-m;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly
+}
+
+.download-app__rating-title {
+    @include m.text-style(sm);
+}
+
+.download-app__rating-text {
+    @include m.text-style(xs);
+}
+
+.download-app__rating-icon {
+    width: 18px;
+    height: 18px;
+}
+
+@include m.respond-max(v.$breakpoint-tablet) {
+
+    .download-app {
+        padding: 48px 36px;
+    }
+
+    .download-app__content {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .download-app__title {
+        @include m.text-style(md);
+    }
+
+    .download-app__right-content {
+        max-width: 335px;
+    }
+
+}
+
+@include m.respond-max(v.$breakpoint-desktop) {
+
+    .download-app {
+        padding: 96px;
+    }
+
+    .download-app__right-content {
+        max-width: 516px;
+        flex: 0 0 516px;
+    }
+
+    .download-app__rating-item {
+        width: 170px;
+        height: 176px;
+    }
+
+    .download-app__rating-title {
+        @include m.text-style(base);
+    }
+
+    .download-app__rating-text {
+        @include m.text-style(sm);
+        @include m.text-uppercase;
+
+    }
+
+    .download-app__rating-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+}

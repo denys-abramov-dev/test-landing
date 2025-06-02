@@ -1,0 +1,39 @@
+@use "sass:map";
+@use "./variables.scss" as v;
+
+@mixin text-style($size-key) {
+  $style: map.get(v.$text-styles, $size-key);
+
+  @if $style {
+    font-size: map.get($style, font-size);
+    line-height: map.get($style, line-height);
+    font-weight: map.get($style, font-weight);
+  } @else {
+    @warn "Unknown text style `#{$size-key}`.";
+  }
+}
+
+@mixin text-uppercase {
+  text-transform: uppercase;
+}
+
+@mixin box-shadow {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@mixin respond-min($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin respond-max($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin bg-image {
+  background: url("src/assets/images/section-background.png") center/cover no-repeat;
+    background-color: v.$color-base;
+}
