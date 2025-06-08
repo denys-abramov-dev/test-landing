@@ -34,6 +34,6 @@
 }
 
 @mixin bg-image {
-  background: url("src/assets/images/section-background.png") center/cover no-repeat;
+  background: url("../../src/assets/images/section-background.png") center/cover no-repeat;
     background-color: v.$color-base;
 }
