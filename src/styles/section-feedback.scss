@@ -1,0 +1,114 @@
+@use "./variables.scss" as v;
+@use "./mixins.scss" as m;
+
+.feedback {
+    @include m.bg-image;
+    color: v.$color-white;
+    padding: 60px 30px;
+}
+
+.feedback__title {
+    @include m.text-style(base);
+    @include m.text-uppercase;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.feedback__text {
+    @include m.text-style(xs);
+    text-align: center;
+    margin: 0 auto 33px;
+}
+
+.feedback__slider {}
+
+.slide {
+    @include m.box-shadow;
+    padding: 20px 8px;
+    border-radius: v.$border-radius-m;
+    background-color: v.$color-white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slide__img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 12px;
+    border-radius: 50%;
+}
+
+.slide__title {
+    @include m.text-style(base);
+    @include m.text-uppercase;
+    color: v.$color-black;
+}
+
+.slide__position {
+    @include m.text-style(xs);
+    @include m.text-uppercase;
+    color: v.$color-black;
+    margin-bottom: 18px;
+}
+
+.slide__text {
+    @include m.text-style(xs);
+    color: v.$color-gray;
+    text-align: center;
+}
+
+@include m.respond-max(v.$breakpoint-tablet) {
+
+    .feedback {
+        padding: 120px 40px;
+    }
+
+    .feedback__title {
+        @include m.text-style(md);
+    }
+
+    .feedback__text {
+        max-width: 450px;
+        margin-bottom: 40px;
+    }
+
+    .slide {
+        padding: 23px 37px;
+    }
+
+}
+
+@include m.respond-max(v.$breakpoint-desktop) {
+
+    .feedback__title {
+        margin-bottom: 23px;
+    }
+
+    .feedback__text {
+        max-width: 600px;
+        margin-bottom: 60px;
+    }
+
+    .slide {
+        padding: 40px 60px;
+    }
+
+    .slide__title {
+        @include m.text-style(md);
+    }
+
+    .slide__position {
+        @include m.text-style(sm);
+    }
+
+    .slide__img {
+        width: 96px;
+        height: 96px;
+    }
+
+    .slide__position {
+        margin-bottom: 8px;
+    }
+
+}
