@@ -4,7 +4,7 @@
 .features {
     @include m.bg-image;
     overflow: hidden;
-    padding: 60px 42px;
+    padding: 60px 42px 180px;
     color: v.$color-white;
 }
 
