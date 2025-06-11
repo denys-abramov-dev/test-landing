@@ -110,6 +110,34 @@ class Carousel {
         }
     }
 
+    handleTouchStart(event) {
+        this.touchStartX = event.touches[0].clientX;
+        this.touchEndX = null;
+    }
+
+    handleTouchMove(event) {
+        this.touchEndX = event.touches[0].clientX;
+    }
+
+    handleTouchEnd() {
+        if (this.touchStartX === null || this.touchEndX === null) return;
+
+        const diffX = this.touchStartX - this.touchEndX;
+
+        if (Math.abs(diffX) > 30) {
+            if (diffX > 0 && this.activeSlideIndex < this.slides.length - 1) {
+                this.updateCarousel(this.activeSlideIndex + 1);
+                this.resetAutoSlide();
+            } else if (diffX < 0 && this.activeSlideIndex > 0) {
+                this.updateCarousel(this.activeSlideIndex - 1);
+                this.resetAutoSlide();
+            }
+        }
+
+        this.touchStartX = null;
+        this.touchEndX = null;
+    }
+
     startAutoSlide() {
         this.autoSlideInterval = setInterval(() => {
             const nextIndex = (this.activeSlideIndex + 1) % this.slides.length;
@@ -141,6 +169,10 @@ class Carousel {
                 { passive: false }
             );
         }
+
+        this.carouselTrack.addEventListener('touchstart', this.handleTouchStart.bind(this), { passive: true });
+        this.carouselTrack.addEventListener('touchmove', this.handleTouchMove.bind(this), { passive: true });
+        this.carouselTrack.addEventListener('touchend', this.handleTouchEnd.bind(this), { passive: true });
 
         this.slides.forEach((slide, index) => {
             slide.addEventListener('click', () => {
