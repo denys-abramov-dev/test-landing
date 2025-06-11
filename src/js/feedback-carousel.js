@@ -81,7 +81,6 @@ class Carousel {
     }
 
     updateCarousel(index) {
-        console.log(`Updating carousel to slide index: ${index}`);
         this.slideTo(index);
         this.updateActiveDot(index);
         this.updateSlidesClass(index);
@@ -94,6 +93,7 @@ class Carousel {
             const index = parseInt(slideIndex, 10);
             if (index !== this.activeSlideIndex) {
                 this.updateCarousel(index);
+                this.resetAutoSlide();
             }
         }
     }
@@ -102,8 +102,10 @@ class Carousel {
         if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
             if (event.deltaX > 0 && this.activeSlideIndex < this.slides.length - 1) {
                 this.updateCarousel(this.activeSlideIndex + 1);
+                this.resetAutoSlide();
             } else if (event.deltaX < 0 && this.activeSlideIndex > 0) {
                 this.updateCarousel(this.activeSlideIndex - 1);
+                this.resetAutoSlide();
             }
         }
     }
@@ -120,6 +122,11 @@ class Carousel {
             clearInterval(this.autoSlideInterval);
             this.autoSlideInterval = null;
         }
+    }
+
+    resetAutoSlide() {
+        this.stopAutoSlide();
+        this.startAutoSlide();
     }
 
     addEventListeners() {
@@ -139,6 +146,7 @@ class Carousel {
             slide.addEventListener('click', () => {
                 if (index !== this.activeSlideIndex) {
                     this.updateCarousel(index);
+                    this.resetAutoSlide();
                 }
             });
         });
